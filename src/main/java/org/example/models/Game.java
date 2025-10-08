@@ -1,0 +1,26 @@
+package org.example.models;
+
+import org.example.strategies.WinningStrategy;
+
+import java.security.PublicKey;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Game {
+    public Board board;
+    private List<Player> players;
+    private List<Move> moves;
+    private int nextPlayerIndex;
+    private GameState gameState;
+    private Player winner;
+    private List<WinningStrategy> winningStrategies;
+
+    public Game(int dimension, List<Player> players , List<WinningStrategy> winningStrategies){
+        this.players = players;
+        this.winningStrategies = winningStrategies;
+        this.board = new Board(dimension);
+        this.moves = new ArrayList<>();
+        this.nextPlayerIndex = 0;
+        this.gameState = GameState.INIT;
+    }
+}
