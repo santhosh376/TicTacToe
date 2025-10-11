@@ -1,11 +1,14 @@
 package org.example.models;
 
-import org.example.strategies.WinningStrategy;
+import lombok.Getter;
+import lombok.Setter;
+import org.example.strategies.winning.WinningStrategy;
 
-import java.security.PublicKey;
 import java.util.ArrayList;
 import java.util.List;
 
+@Getter
+@Setter
 public class Game {
     public Board board;
     private List<Player> players;

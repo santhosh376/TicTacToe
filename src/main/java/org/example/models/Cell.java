@@ -15,8 +15,4 @@ public class Cell {
         this.col = col;
         this.cellState = CellState.EMPTY;
     }
-
-    public CellState getCellState() {
-        return cellState;
-    }
 }

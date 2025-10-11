@@ -5,12 +5,14 @@ import lombok.experimental.SuperBuilder;
 
 @Getter
 @Setter
-@Builder
+@SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Player {
+public abstract class Player {
     private String name;
     private Integer id;
     private char symbol;
     private PlayerType playerType;
+
+    public abstract void nextMove(Board board);
 }
