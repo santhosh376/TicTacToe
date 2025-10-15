@@ -15,7 +15,7 @@ public class HumanPlayer extends Player {
     private int age;
 
     @Override
-    public void nextMove(Board board) {
+    public Cell nextMove(Board board) {
         //1. Check if there is empty cell in the board
         //2. Taking input from the user, which row and col they want to place
         //3. The cell should be empty
@@ -36,5 +36,6 @@ public class HumanPlayer extends Player {
         Cell cell = board.getBoard().get(row).get(col);
         cell.setPlayer(this);
         cell.setCellState(CellState.OCCUPIED);
+        return cell;
     }
 }

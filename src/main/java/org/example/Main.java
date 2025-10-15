@@ -3,6 +3,8 @@ package org.example;
 import org.example.controller.GameController;
 import org.example.controller.PlayerController;
 import org.example.models.*;
+import org.example.strategies.winning.ColumnWinningStrategy;
+import org.example.strategies.winning.RowWinningStrategy;
 
 import java.sql.SQLOutput;
 import java.util.ArrayList;
@@ -61,6 +63,17 @@ public class Main {
             }
         }
 
-        Game game = GameController.initiateGame(dimension,players,List.of());
+        Game game = GameController.initiateGame(
+                dimension,
+                players,
+                List.of(new RowWinningStrategy(),new ColumnWinningStrategy()));
+
+        System.out.println("Are you ready to start the game?");
+
+        if(sc.next().equals("Y")){
+            GameController gc = new GameController(game);
+            gc.startGame();;
+        }
+        System.out.println("game ended");
     }
 }

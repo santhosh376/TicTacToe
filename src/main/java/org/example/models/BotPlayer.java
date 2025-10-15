@@ -17,8 +17,16 @@ public class BotPlayer extends Player{
      BotPlayingStrategy botPlayingStrategy = new EasyBotPlayingStrategy();
 
      @Override
-     public void nextMove(Board board) {
+     public Cell nextMove(Board board) {
           // TODO: Have a simple factory here based on difficulty level
+          // TODO: Don't initialize everytime
+         botPlayingStrategy = new EasyBotPlayingStrategy();
+         Cell cell = botPlayingStrategy.suggestMove(board);
 
+         Cell boardCell = board.getBoard().get(cell.getRow()).get(cell.getCol());
+
+         boardCell.setPlayer(this);
+         boardCell.setCellState(CellState.OCCUPIED);
+         return boardCell;
      }
 }

@@ -9,6 +9,4 @@ public interface BotPlayingStrategy {
     Cell suggestMove(Board board);
 
 
-
-
 }
