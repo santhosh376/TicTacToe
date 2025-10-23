@@ -1,5 +1,6 @@
 package org.example.controller;
 
+
 import org.example.models.Game;
 import org.example.models.GameState;
 import org.example.models.Player;
@@ -23,7 +24,7 @@ public class GameController {
         return new Game(dimension,players,winningStrategies);
     }
 
-    public void startGame(){
+    public void startGame() {
         game.setGameState(GameState.IN_PROGRESS);
         gameService.executeNextMoves();
     }

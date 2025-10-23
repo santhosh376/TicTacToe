@@ -75,5 +75,8 @@ public class Main {
             gc.startGame();;
         }
         System.out.println("game ended");
+
+        //ToDO: Ask if the player wants replay of game
+        // Using the list of moves that we have stored
     }
 }

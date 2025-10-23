@@ -18,7 +18,6 @@ public class RowWinningStrategy implements WinningStrategy {
             if(currentCell.getCellState().equals(CellState.EMPTY) ||
                     !currentCell.getPlayer().equals(currentPlayer)){
                  return  false;
-
             }
         }
         return true;

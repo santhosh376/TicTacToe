@@ -1,6 +1,7 @@
 package org.example.controller;
 
 import org.example.models.*;
+import org.example.strategies.botplaying.BotPlayingStrategyFactory;
 
 public class PlayerController {
 
@@ -20,6 +21,7 @@ public class PlayerController {
                   .name(name)
                   .symbol(symbol)
                   .difficultyLevel(difficultyLevel)
+                  .botPlayingStrategy(BotPlayingStrategyFactory.getBotPlayingStrategy(difficultyLevel))
                   .playerType(PlayerType.BOT)
                   .build();
     }

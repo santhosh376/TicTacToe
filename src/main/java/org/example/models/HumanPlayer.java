@@ -4,6 +4,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
+import org.example.exceptions.InvalidCellException;
 
 import java.util.Scanner;
 
@@ -15,7 +16,7 @@ public class HumanPlayer extends Player {
     private int age;
 
     @Override
-    public Cell nextMove(Board board) {
+    public Cell nextMove(Board board) throws InvalidCellException {
         //1. Check if there is empty cell in the board
         //2. Taking input from the user, which row and col they want to place
         //3. The cell should be empty
@@ -29,8 +30,10 @@ public class HumanPlayer extends Player {
         int col = sc.nextInt();
 
         // TODO add a custom exception
-        if(!board.getBoard().get(row).get(col).getCellState().equals(CellState.EMPTY)){
-            throw new IllegalArgumentException("Cells not empty");
+        if(row < 0 || row >= board.getSize()
+            && col < 0 || col >= board.getSize() ||
+                !board.getBoard().get(row).get(col).getCellState().equals(CellState.EMPTY)){
+            throw new InvalidCellException();
         }
 
         Cell cell = board.getBoard().get(row).get(col);
